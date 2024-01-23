@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+<button id="copy-btn" onclick="copyToClipboard()">Copy</button>
+<input id="text-to-copy" type="text" >
+<script>
+function copyToClipboard() {
+  /* Get the text to be copied */
+  var copyText = document.getElementById("text-to-copy");
+
+  /* Select and copy the text */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+
+  /* Update button text */
+  var copyBtn = document.getElementById("copy-btn");
+  copyBtn.innerHTML = "Copied!";
+}
+</script>
+    </body>
+</html>

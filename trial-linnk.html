@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search with Links</title>
+    <style>
+        #searchContainer {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #searchInput {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #searchResults {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        #searchResults li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="searchContainer">
+    <input type="text" id="searchInput" oninput="performSearch(this.value)" placeholder="Search...">
+    <ul id="searchResults"></ul>
+</div>
+
+<script>
+    const data = [
+        { title: 'Google', url: 'https://www.google.com' },
+        { title: 'GitHub', url: 'https://www.github.com' },
+        { title: 'Stack Overflow', url: 'https://stackoverflow.com' },
+        // Add more data as needed
+    ];
+
+    function performSearch(query) {
+        const resultsContainer = document.getElementById('searchResults');
+        resultsContainer.innerHTML = '';
+
+        const filteredData = data.filter(item =>
+            item.title.toLowerCase().includes(query.toLowerCase())
+        );
+
+        filteredData.forEach(item => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = item.url;
+            link.textContent = item.title;
+            listItem.appendChild(link);
+            resultsContainer.appendChild(listItem);
+        });
+    }
+</script>
+
+</body>
+</html>

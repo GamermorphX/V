@@ -1,0 +1,139 @@
+*{
+    box-sizing: border-box;
+    position: relative;
+    font-family: "Poppins", "Verdana", "Roboto", sans-serif;
+}header {
+        position: sticky;
+        top: 0; 
+        z-index: 1000;
+    }
+    
+    /* Optional: Ensure Navbar Stays at the Top */
+    .navbar {
+        position: fixed;
+        width: 100%;
+        height: 90px;
+        background-color: rgba(255, 255, 255, 1);
+        border-bottom: 1px solid rgb(216, 216, 216);
+        transition: top 0.3s;
+    }
+    
+    /* Other Existing Styles... */
+    .nav{
+    border-bottom: 1px solid rgb(211, 211, 211);
+}.logo{
+    font-size: 30px;
+    color: rgb(0, 0, 73);
+    position: absolute;
+    top: 30px;
+    left: 70px;
+}.logo-pic{
+    position: absolute;
+    top: 15px;
+}.link{
+    position: absolute;
+    top: 20px;
+    left: 1150px;
+    padding: 15px 50px 15px 50px;
+    background-color: white;
+    border: 2px solid rgb(0,0,78);
+    border-radius: 40px;
+}.link:hover{
+    background-color: rgb(0, 0, 78);
+    transition: 0.5s;
+}.link:hover .mail-link{
+    color: white;
+}a{
+    text-decoration: none;
+    cursor: pointer;
+}.mail-link{
+    color: black;
+}.blog-link{
+    position: absolute;
+    top: 30px;
+    left: 800px;
+}.blog-link:hover{
+    color: rgb(255, 115, 0);
+}.Company:hover{
+    color: rgb(255, 115, 0);
+}.comp{
+    position: absolute;
+    top: 35px;
+    left: 1100px;
+}.home-pic{
+    position: absolute;
+    top: 100px;
+    left: 450px;
+    z-index: -1;
+    animation: up-down ease-in-out 30s infinite;
+}
+@keyframes up-down {
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, 25px); }
+    to   { transform: translate(0, -0px); }    
+}.cont-nav{
+    position: absolute;
+    top: 400px;
+    left:200px;
+    display: flex;
+}.nav-{
+    margin-left: 40px;
+    color: black;
+}.nav-:hover{
+    transform: translateY(-3px);
+    color: aqua;
+    transition: 400ms;
+}.User-link{
+        position: absolute;
+        top: 30px;
+        left: 1000px;
+}.User-link:hover{
+        color: rgb(255, 115, 0);
+}.vid-link{
+    position: absolute;
+    top: 30px;
+    left: 900px;
+}.vid-link:hover{
+    color: rgb(255, 115, 0);
+}.search{
+    position: absolute;
+    top: 30px;
+    left: 700px;
+}.search:hover{
+    color: rgb(255, 115, 0);
+}h2{
+    color: black;
+}.ai{
+    z-index: 1000;
+}#input-search{
+    position: absolute;
+    top: 30px;
+    left: 350px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid #c9c9ca;
+}#input-search:hover{
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: -50px;
+    border-color: blueviolet;
+    transition: 1s;
+}.more-content{
+    display: none;
+    display: none;
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    background-color: white; /* You can adjust the background color as needed */
+    box-shadow: 0 20px 25px 30px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow for a card-like effect */
+    z-index: 10000000000; /* Ensure the stacked content appears above other elements */
+    margin-top: 0px;
+    border-radius: 10px;
+}.more:hover .more-content{
+    display: block;
+}.has{
+    padding-top: 0px;
+    text-decoration: none;
+    color: black;
+    margin-top: 20px;
+}

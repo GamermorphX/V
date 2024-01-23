@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <link rel="stylesheet" href="vortex.css">
+       <link rel="stylesheet" href="media.css">
+       <script src="https://kit.fontawesome.com/fcbeb51a86.js" crossorigin="anonymous"></script>
+       <link rel="stylesheet" href="style.css">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+       <script src="script.js" defer></script>
+       <script src="search-asst.js"></script>
+       <script src="https://accounts.google.com/gsi/client" async defer></script>
+       <title>VORTEX</title>
+       <link rel="icon" href="hurricane.png" type="image/icon type">
+       <style>
+#searchResults {
+  position: absolute;
+  position: fixed;
+  top: 100px;
+  left: 300px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 100000000;
+  width: 300px;
+
+}
+
+#searchResults li {
+  padding: 10px;
+  background-color: #f4f4f4; /* Background color for each result item */
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+
+}
+
+#searchResults li a {
+  text-decoration: none;
+  color: blue;
+}
+
+#searchResults li:hover {
+  background-color: #e0e0e0; /* Background color on hover */
+}
+
+       </style>
+    </head>
+    <body>
+      <header> 
+        <nav class="navbar">
+        <img src="hurricane.png" class="logo-pic"><h1 class="logo">VORTEX</h1>
+        <input type="text" placeholder="Search topics" id="input-search" >
+        <label for="input-search" onclick="performSearch(document.getElementById('input-point').value)"><h2 class="search"><i class="fa-solid fa-magnifying-glass" ></i></h2></label>
+        <ul id="searchResults"></ul>
+        <a href="discover-home.html"><h2 class="blog-link" ><i class="fa-solid fa-house"></i></h2></a>
+        <h2 class="User-link" onclick="showGoogleOneTap();"><i class="fa-solid fa-circle-user"></i></h2>
+        <a href="#"><h2 class="vid-link"><i class="fa-solid fa-video"></i></h2></a>
+        <h3 class="comp"><i class="fa-solid fa-users"></i></h3>
+        <button class="link"> <a href="contact info.contact" class="mail-link">Contact</a></button>
+        </nav>
+      </header>
+      <div class="home">
+        <img src="240_F_329020800_Hp5WGplZVmbBLVX6wLN3uwc9BkPfg9vn.jpg" class="home-pic">
+    <div class="cont-nav">
+      <a class="nav-" href="discover-home.html">Discover</a>
+      <a class="nav-" href="quantum-home.html">Quantum Mechanics RS</a>
+      <a class="nav-" href="#">Artificial Intelligence</a>
+      <a class="nav-" href="#">Biology RS</a>
+      <a class="nav-" href="#">Philosophy</a>
+      <a class="nav-" href="#">Tech invates</a>
+    <div class="more">
+      <a class="nav-" href="#">More</a>
+      <div class ="more-content">
+        <a class="has" href="#"></a>
+        <a  class="has"href="#"></a>
+        <a  class="has"href="#"></a>
+        <a  class="has"href="#"></a>
+        <a  class="has"href="#"></a>
+      </div>
+    </div>
+    </div>
+
+    <button class="chatbot-toggler">
+      <h1 class="chatbot-icon"><i class="fa-solid fa-robot"></i></h1>
+      <h1 class="chatbot-icon"><i class="fa-solid fa-xmark"></i></h1>
+    </button>
+    <div class="chatbot">
+      <header>
+        <h2 class="chat-tile">Chatbot</h2>
+        <span class="close-btn material-symbols-outlined">close</span>
+      </header>
+      <ul class="chatbox">
+        <li class="chat incoming">
+          <span class="material-symbols-outlined">smart_toy</span>
+          <p>Hi ,welcome to VORTEX.AI<br>How can I assist you today?</p>
+        </li>
+      </ul>
+      <div class="chat-input">
+        <textarea placeholder="Enter a message..." spellcheck="true" required></textarea>
+        <span id="send-btn" class="material-symbols-rounded">send</span>
+      </div>
+    </div>
+      </div>
+        <script>
+    const data = [
+        { title: 'qu', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+        { title: '', url: '' },
+    ];
+    document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('input-search');
+    const searchIconLabel = document.querySelector('label[for="input-search"]');
+    const resultsContainer = document.getElementById('searchResults');
+
+    searchInput.addEventListener('input', function () {
+        performSearch(this.value);
+    });
+
+    searchIconLabel.addEventListener('click', function (event) {
+        event.preventDefault();
+        performSearch(searchInput.value);
+    })
+
+    document.addEventListener('click', function (event) {
+        if (!event.target.matches('#input-search') && !event.target.matches('#searchResults')) {
+            resultsContainer.innerHTML = '';
+        }
+    });
+  });
+
+
+    function performSearch(query) {
+        const resultsContainer = document.getElementById('searchResults');
+        resultsContainer.innerHTML = '';
+
+        if (query.trim() === '') {
+            return;
+        }
+
+        const filteredData = data.filter(item =>
+            item.title.toLowerCase().includes(query.toLowerCase())
+        );
+
+        filteredData.forEach(item => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = item.url;
+            link.textContent = item.title;
+            listItem.appendChild(link);
+            resultsContainer.appendChild(listItem);
+        });
+    }
+   let prevScrollPos = window.pageYOffset;
+
+window.onscroll = function() {
+  let currentScrollPos = window.pageYOffset;
+
+  if (prevScrollPos > currentScrollPos) {
+    // User is scrolling up
+    document.querySelector(".navbar").style.top = "0";
+  } else {
+    // User is scrolling down
+    document.querySelector(".navbar").style.top = "-80px"; // Adjust the height of your navbar accordingly
+  }
+
+  prevScrollPos = currentScrollPos;
+};
+
+      </script>
+    </body>
+</html>
